@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 html,
 body {
   font-family: "Roboto", sans-serif;
@@ -33,26 +34,30 @@ canvas {
   justify-content: space-between;
   text-align: center; /* Přidáno - obsah bude centrován na střed */
 }
+
 h1.title {
   color: white;
-  font-size: 300%;
+  font-size: 500%;
   display: inline;
   font-weight: 500;
 }
+
 .contacts {
   margin-bottom: 1vw;
   margin-right: 1vw;
   display: flex;
   text-align: center;
 }
+
 .contact li {
   list-style-type: none;
   color: white;
-  font-size: 200%;
+  font-size: 400%;
   font-weight: 500;
   display: inline-block;
   margin-right: 5%;
 }
+
 .contact li a {
   text-decoration: none;
   position: fixed;
@@ -60,25 +65,30 @@ h1.title {
   color: white;
   margin-bottom: 5%;
 }
+
 .contact li a:hover {
   color: rgba(255, 255, 255, 1);
 }
+
 .contact li ~ li {
   margin-left: 1vw;
   text-align: center;
 }
+
 .blur {
   width: 100%;
   height: 100%;
   position: absolute;
   overflow: hidden;
 }
+
 .blurTop {
   left: 40%;
   top: -110%;
   transform: rotate(20deg);
   transform-origin: 0 100%;
 }
+
 .blurBottom {
   left: -60%;
   top: 100%;
@@ -89,6 +99,7 @@ h1.title {
 .container {
   overflow: hidden;
 }
+
 /* ---- particles.js container ---- */
 
 #particles-js {
@@ -97,4 +108,19 @@ h1.title {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .content {
+    top: 10%;
+  }
+
+  h1.title {
+    font-size: 300%;
+  }
+
+  .contact li {
+    font-size: 200%;
+  }
 }

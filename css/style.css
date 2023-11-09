@@ -125,6 +125,7 @@ img{
 
   h1.title {
     font-size: 300%;
+    margin-top: 50%;
   }
 
   .contact li {
@@ -137,9 +138,9 @@ img{
   }
   
   img{
-    width: 3%;
+    width: 5%;
     position: absolute;
     top: 3%;
-    left: 1%;
+    left: 50%;
   }
-  
+}

@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+html,body {
+    font-family: 'Roboto', sans-serif;
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    position:absolute;
+    background: linear-gradient(25deg,#06011d,rgb(2, 95, 107));
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+  }
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+.container  {
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+
+.content {
+  left:15%;
+  top:20%;
+  width:70%;
+  position:relative;
+}
+h1.title {
+  color:white;
+  font-size: 4vw;
+  display:inline;
+  font-weight:500;
+}
+p.desc{
+  position:relative;
+  width:100%;
+  font-size:4vw;
+  color:rgba(255,255,255,1);
+  font-weight: 200;
+  margin-bottom:40px;
+}
+.contacts {
+  position:absolute;
+  right:0%;
+  bottom:0;
+  margin-bottom:1vw;
+  margin-right:1vw;
+}
+.contact li {
+  list-style-type:none;
+  float:left;
+  margin-top: 25%;
+  color:white;
+  font-size: 3vw;
+  display:inline;
+  font-weight:500;
+}
+.contact li a {
+  text-decoration:none;
+  color: rgba(255,255,255,0.8);
+}
+.contact li a:hover{
+  color:rgba(255,255,255,1);
+}
+.contact li~li {
+  margin-left:1vw;
+}
+.blur {
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+}
+.blurTop{
+  left:40%;
+  top:-110%;
+  transform:rotate(20deg);
+  transform-origin: 0 100%;
+}
+.blurBottom{
+  left:-60%;
+  top:100%;
+  transform:rotate(20deg);
+  transform-origin: 100% 0%;
+}
+
+.container {
+  overflow: hidden;
+}
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}

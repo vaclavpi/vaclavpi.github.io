@@ -8,25 +8,22 @@
     this.attr = this.options.attr;
     this.showCursor = this.isInput ? false : this.options.showCursor;
 
-    // text content of element
+
     this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text();
 
-    // html or plain text
     this.contentType = this.options.contentType;
 
-    // typing speed
     this.typeSpeed = this.options.typeSpeed;
 
-    // add a delay before typing starts
+
     this.startDelay = this.options.startDelay;
 
-    // backspacing speed
     this.backSpeed = this.options.backSpeed;
 
-    // amount of time to wait before backspacing
+ 
     this.backDelay = this.options.backDelay;
 
-    // div containing strings
+
     this.stringsElement = this.options.stringsElement;
 
     // input strings of text
@@ -101,49 +98,36 @@
       this.init();
     },
 
-    // pass current string state to each function, types 1 char per call
+
     typewrite: function (curString, curStrPos) {
-      // exit when stopped
+
       if (this.stop === true) {
         return;
       }
 
-      // varying values for setTimeout during typing
-      // can't be global since number changes each time loop is executed
       var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
       var self = this;
 
-      // ------------- optional ------------- //
-      // backpaces a certain string faster
-      // ------------------------------------ //
-      // if (self.arrayPos == 1){
-      //  self.backDelay = 50;
-      // }
-      // else{ self.backDelay = 500; }
-
-      // contain typing function in a timeout humanize'd delay
       self.timeout = setTimeout(function () {
-        // check for an escape character before a pause value
-        // format: \^\d+ .. eg: ^1000 .. should be able to print the ^ too using ^^
-        // single ^ are removed from string
+
         var charPause = 0;
         var substr = curString.substr(curStrPos);
         if (substr.charAt(0) === "^") {
-          var skip = 1; // skip atleast 1
+          var skip = 1; 
           if (/^\^\d+/.test(substr)) {
             substr = /\d+/.exec(substr)[0];
             skip += substr.length;
             charPause = parseInt(substr);
           }
 
-          // strip out the escape character and pause value so they're not printed
+  
           curString =
             curString.substring(0, curStrPos) +
             curString.substring(curStrPos + skip);
         }
 
         if (self.contentType === "html") {
-          // skip over html tags while typing
+   
           var curChar = curString.substr(curStrPos).charAt(0);
           if (curChar === "<" || curChar === "&") {
             var tag = "";
@@ -220,24 +204,11 @@
         return;
       }
 
-      // varying values for setTimeout during typing
-      // can't be global since number changes each time loop is executed
       var humanize = Math.round(Math.random() * (100 - 30)) + this.backSpeed;
       var self = this;
 
       self.timeout = setTimeout(function () {
-        // ----- this part is optional ----- //
-        // check string array position
-        // on the first string, only delete one word
-        // the stopNum actually represents the amount of chars to
-        // keep in the current string. In my case it's 14.
-        // if (self.arrayPos == 1){
-        //  self.stopNum = 14;
-        // }
-        //every other time, delete the whole typed string
-        // else{
-        //  self.stopNum = 0;
-        // }
+
 
         if (self.contentType === "html") {
           // skip over html tags while backspacing
@@ -316,25 +287,7 @@
       return array;
     },
 
-    // Start & Stop currently not working
-
-    // , stop: function() {
-    //     var self = this;
-
-    //     self.stop = true;
-    //     clearInterval(self.timeout);
-    // }
-
-    // , start: function() {
-    //     var self = this;
-    //     if(self.stop === false)
-    //        return;
-
-    //     this.stop = false;
-    //     this.init();
-    // }
-
-    // Reset and rebuild the element
+    
     reset: function () {
       var self = this;
       clearInterval(self.timeout);
@@ -403,16 +356,19 @@
 $(function () {
   $("#typed").typed({
     strings: [
-      "Václav Pisinger.",
-      "skaut.",
-      "taekwondista.",
-      "softwarový vývojář.",
+      "Václav Pisinger. ",
+      "skaut a skautský vedoucí. ",
+      "aktivní taekwondista. ",
+      "softwarový vývojář. ",
       "člověk, který chce zanechat tento svět o trochu lepší, než jaký byl, když jsme na něj přišli. ",
       "Čech.",
-      "srudent gymnázia. ",
-      "člověk, který věří hodnotám Nejvyšší Pravdy a Lásky.",
-      "předseda ve školním parlamentu",
-      "Václav Pisinger.",
+      "držitel skautského vyznamenání Lví skaut. ",
+      "Student gymnázia. ",
+      "člověk, který věří hodnotám Nejvyšší Pravdy a Lásky. ",
+      "několikanásobný vicemistr republiky v Taekwon-Do ITF (Kwang Gae). ",
+      "předseda ve školním parlamentu. ",
+      "držitel vzdělávaacích (nejen) skautských oprávnění.", 
+      "Václav Pisinger .",
     ],
     typeSpeed: 40,
     backSpeed: 0,

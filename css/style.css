@@ -131,6 +131,7 @@ img{
   .contact li {
     font-size: 200%;
     margin-right: 10%;
+      text-align: center; /* Přidáno - obsah bude centrován na střed */
   }
 
   .contact li a {

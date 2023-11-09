@@ -367,7 +367,7 @@ $(function () {
       "člověk, který věří hodnotám Nejvyšší Pravdy a Lásky. ",
       "několikanásobný vicemistr republiky v Taekwon-Do ITF (Kwang Gae). ",
       "předseda ve školním parlamentu. ",
-      "držitel vzdělávaacích (nejen) skautských dekretů. ", 
+      "držitel vzdělávacích (nejen) skautských dekretů. ", 
       "Václav Pisinger .",
     ],
     typeSpeed: 40,

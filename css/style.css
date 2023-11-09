@@ -34,17 +34,9 @@ canvas{
 }
 h1.title {
   color:white;
-  font-size: 4vw;
+  font-size: 500%;
   display:inline;
   font-weight:500;
-}
-p.desc{
-  position:relative;
-  width:100%;
-  font-size:4vw;
-  color:rgba(255,255,255,1);
-  font-weight: 200;
-  margin-bottom:40px;
 }
 .contacts {
   position:absolute;
@@ -58,7 +50,7 @@ p.desc{
   float:left;
   margin-top: 25%;
   color:white;
-  font-size: 3vw;
+  font-size: 400%;
   display:inline;
   font-weight:500;
 }

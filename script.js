@@ -370,7 +370,7 @@ $(function () {
       "několikanásobný vicemistr republiky v Taekwon-Do ITF (Kwang Gae). ",
       "předseda ve školním parlamentu. ",
       "držitel vzdělávacích (nejen) skautských dekretů. ", 
-      "Václav Pisinger .",
+      "Václav Pisinger ."
     ],
     typeSpeed: 40,
     backSpeed: 0,

@@ -7,15 +7,9 @@
     this.isInput = this.el.is("input");
     this.attr = this.options.attr;
     this.showCursor = this.isInput ? false : this.options.showCursor;
-
-
     this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text();
-
     this.contentType = this.options.contentType;
-
     this.typeSpeed = this.options.typeSpeed;
-
-
     this.startDelay = this.options.startDelay;
 
     this.backSpeed = this.options.backSpeed;
@@ -364,9 +358,8 @@ $(function () {
       "Václav Pisinger ."
     ],
     typeSpeed: 40,
-    backSpeed: 40,
     startDelay: 1100,
-    backDelay: 0,
+    backDelay: 1100,
   });
   $("a").click(function () {
     $(this).toggleClass("dont-turn-blue");

@@ -318,7 +318,7 @@
     ],
     stringsElement: null,
     typeSpeed: 0,
-    startDelay: 300,
+    startDelay: 1100,
     backSpeed: 0,
     shuffle: false,
     backDelay: 500,
@@ -364,7 +364,8 @@ $(function () {
       "Václav Pisinger ."
     ],
     typeSpeed: 40,
-    backSpeed: 800,
+    backSpeed: 1100,
+    startDelay: 1100,
     backDelay: 1100,
   });
   $("a").click(function () {

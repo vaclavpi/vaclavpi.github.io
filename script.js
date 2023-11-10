@@ -360,8 +360,10 @@ $(function () {
       "skaut a skautský vedoucí. ",
       "aktivní taekwondista. ",
       "softwarový vývojář. ",
+      "fotograf. ",
       "člověk, který chce zanechat tento svět o trochu lepší, než jaký byl, když jsme na něj přišli. ",
       "Čech.",
+      "jedním ze zakladatelů firmy Principle Industries. "
       "držitel skautského vyznamenání Lví skaut. ",
       "student gymnázia. ",
       "člověk, který věří hodnotám Nejvyšší Pravdy a Lásky. ",

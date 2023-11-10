@@ -318,7 +318,7 @@
     ],
     stringsElement: null,
     typeSpeed: 0,
-    startDelay: 2,
+    startDelay: 300,
     backSpeed: 0,
     shuffle: false,
     backDelay: 500,

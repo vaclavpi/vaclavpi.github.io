@@ -366,7 +366,7 @@ $(function () {
     typeSpeed: 40,
     backSpeed: 1100,
     startDelay: 1100,
-    backDelay: 1100,
+    backDelay: 0,
   });
   $("a").click(function () {
     $(this).toggleClass("dont-turn-blue");

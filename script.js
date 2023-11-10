@@ -364,7 +364,7 @@ $(function () {
       "Václav Pisinger ."
     ],
     typeSpeed: 40,
-    backSpeed: 1100,
+    backSpeed: 40,
     startDelay: 1100,
     backDelay: 0,
   });

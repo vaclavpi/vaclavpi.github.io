@@ -321,7 +321,7 @@
     startDelay: 1100,
     backSpeed: 0,
     shuffle: false,
-    backDelay: 500,
+    backDelay: 0,
     loop: true,
     // false = infinite
     loopCount: false,

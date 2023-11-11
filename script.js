@@ -324,7 +324,7 @@ $(function () {
       "držitelem skautského vyznamenání Lví skaut. ",
       "studentem gymnázia. ",
       "člověkem, který věří hodnotám Nejvyšší Pravdy a Lásky. ",
-      "několikanásobnýem vicemistrem republiky v Taekwon-Do ITF (Kwang Gae). ",
+      "několikanásobným vicemistrem republiky v Taekwon-Do ITF (Kwang Gae). ",
       "předsedou ve školním parlamentu. ",
       "držitelem vzdělávacích (nejen) skautských dekretů. ", 
       "Václav Pisinger ."

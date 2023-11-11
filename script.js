@@ -11,46 +11,20 @@
     this.contentType = this.options.contentType;
     this.typeSpeed = this.options.typeSpeed;
     this.startDelay = this.options.startDelay;
-
     this.backSpeed = this.options.backSpeed;
-
- 
     this.backDelay = this.options.backDelay;
-
-
     this.stringsElement = this.options.stringsElement;
-
-    // input strings of text
     this.strings = this.options.strings;
-
-    // character number position of current string
     this.strPos = 0;
-
-    // current array position
     this.arrayPos = 0;
-
-    // number to stop backspacing on.
-    // default 0, can change depending on how many chars
-    // you want to remove at the time
     this.stopNum = 0;
-
-    // Looping logic
     this.loop = this.options.loop;
     this.loopCount = this.options.loopCount;
     this.curLoop = 0;
-
-    // for stopping
     this.stop = false;
-
-    // custom cursor
     this.cursorChar = this.options.cursorChar;
-
-    // shuffle the strings
     this.shuffle = this.options.shuffle;
-    // the order of strings
     this.sequence = [];
-
-    // All systems go!
     this.build();
   };
 
@@ -58,8 +32,6 @@
     constructor: Typed,
 
     init: function () {
-      // begin the loop w/ first current string (global self.strings)
-      // current string will be passed as an argument each time after this
       var self = this;
       self.timeout = setTimeout(function () {
         for (var i = 0; i < self.strings.length; ++i) self.sequence[i] = i;
@@ -358,7 +330,7 @@ $(function () {
       "Václav Pisinger ."
     ],
     typeSpeed: 40,
-    startDelay: 1100,
+    startDelay: 800,
     backDelay: 1100,
   });
   $("a").click(function () {

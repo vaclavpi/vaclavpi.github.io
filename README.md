@@ -9,7 +9,5 @@
 
 - 👨‍💻 Všechny mé další projekty jsou na [github.com/vaclavpi](github.com/vaclavpi)
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
 
 © Václav Pisinger 2023

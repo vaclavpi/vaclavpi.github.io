@@ -5,7 +5,7 @@
 
 - 🔭 Toto jsou [mé osobní webovky](vaclavpi.github.io)
 
-- 🤝 Jsou mi užitečné **při směřování na mě sociální sítě**
+- 🤝 Jsou mi užitečné **při směřování na mé sociální sítě.**
 
 - 👨‍💻 Všechny mé další projekty jsou na [github.com/vaclavpi](github.com/vaclavpi)
 

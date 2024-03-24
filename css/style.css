@@ -40,11 +40,11 @@ body {
   position: fixed;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 #social-icons a {
   display: inline-block; /* Přidejte tento styl */
@@ -96,5 +96,8 @@ body {
   #welcome {
       font-size: 48px; 
       padding-top: 18%;/* Zmenšená velikost textu pro mobilní zařízení */
+  }
+  #grey-text {
+    margin-top: 10px;
   }
 }

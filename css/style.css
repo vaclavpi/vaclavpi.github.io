@@ -1,147 +1,100 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-html,
 body {
-  font-family: "Roboto", sans-serif;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  position: absolute;
-  background: linear-gradient(25deg, #06011d, rgb(2, 95, 107));
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-html {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-canvas {
-  display: block;
-  vertical-align: bottom;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  justify-content: space-between;
-}
-
-.content {
-  top: 20%;
-  position: relative;
-  justify-content: space-between;
-  text-align: center; /* Přidáno - obsah bude centrován na střed */
-}
-
-h1.title {
+  background-color: #131314;
   color: white;
-  font-size: 500%;
-  display: inline;
-  font-weight: 500;
-}
-
-.contacts {
-  margin-bottom: 1vw;
-  margin-right: 1vw;
-  display: flex;
+  font-family: 'Mitr', sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+#content {
+  position: absolute;
+  top: 15%;
+  left: 10%;
 }
 
-.contact li {
-  list-style-type: none;
-  color: white;
-  font-size: 400%;
-  font-weight: 500;
+
+#welcome {
+  font-size: 96px; /* Zde je zvětšená velikost textu */
   display: inline-block;
-  margin-right: 5%;
+  background: linear-gradient(90deg, #4D83F0, #D86572); /* Barva pro první písmeno na začátku a poslední na konci */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorChange 5s infinite alternate;
+}
+@keyframes colorChange {
+  0% {
+      background-position: 0%;
+  }
+  100% {
+      background-position: 100%;
+  }
+}
+#grey-text {
+  color: #888;
+  margin-top: 20px;
+  font-family: 'Almari', sans-serif;
 }
 
-.contact li a {
-  text-decoration: none;
+
+#social-icons {
   position: fixed;
-  bottom: 0;
-  color: white;
-  margin-bottom: 5%;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+#social-icons a {
+  display: inline-block; /* Přidejte tento styl */
+}
+#social-icons i{
+  width: 150px;
+  margin: 0 1px;
+  color: #888;
+  font-size: 40px;
+  text-decoration: none;
+}
+#profile-pic {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Kulatý rámeček */
 }
 
-.contact li a:hover {
-  color: rgba(255, 255, 255, 1);
-}
-
-.contact li ~ li {
-  margin-left: 1vw;
-  text-align: center;
-}
-
-.blur {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-}
-
-.blurTop {
-  left: 40%;
-  top: -110%;
-  transform: rotate(20deg);
-  transform-origin: 0 100%;
-}
-
-.blurBottom {
-  left: -60%;
-  top: 100%;
-  transform: rotate(20deg);
-  transform-origin: 100% 0%;
-}
-
-.container {
-  overflow: hidden;
-}
-
-img{
-  width: 3%;
-  position: absolute;
-  top: 3%;
-  left: 1%;
-}
-
-/* ---- particles.js container ---- */
-
-#particles-js {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
-/* Responsive styles */
+/* Pro responzivitu */
 @media only screen and (max-width: 768px) {
-  .content {
-    top: 10%;
+  #content {
+      position: static;
+      margin-top: 50px; /* Posune obsah dolů pro lepší viditelnost */
+      left: 0;
+      width: 100%;
   }
-
-  h1.title {
-    font-size: 300%;
-    margin-top: 50%;
+  #profile-pic {
+      top: 10px; /* Posune profilovou fotku blíže k hornímu okraji */
+      left: 50%; /* Umístí profilovou fotku na střed horizontálně */
+      transform: translateX(-50%);
   }
-
-  .contact li {
-    font-size: 200%;
-    margin-right: 10%;
-      text-align: center; /* Přidáno - obsah bude centrován na střed */
+  #social-icons {
+      position: fixed;
+      margin-top: 80%; /* Posune sociální ikony výš */
+      white-space: nowrap; /* Zabraňuje zalamování ikon na nový řádek */
   }
-
-  .contact li a {
-    margin-bottom: 10%;
+  #social-icons a {
+      margin: 0 1px; /* Větší mezery mezi ikonami pro lepší ovladatelnost */
+      display: inline-block; /* Zajišťuje, že ikony se zobrazují vedle sebe */
   }
-  
-  img{
-    width: 5%;
-    position: absolute;
-    top: 3%;
-    left: 50%;
+  #social-icons i{
+    width: 15%;
+    color: #888;
+    font-size: 35px;
+    text-decoration: none;
+  }
+  #welcome {
+      font-size: 48px; 
+      padding-top: 18%;/* Zmenšená velikost textu pro mobilní zařízení */
   }
 }

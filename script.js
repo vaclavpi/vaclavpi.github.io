@@ -313,14 +313,13 @@
 $(function () {
   $("#typed").typed({
     strings: [
-      "Václav Pisinger. ",
       "hrdým skautem a skautským vedoucím. ",
       "aktivním taekwondistou. ",
       "softwarovým vývojářem. ",
       "fotografem. ",
       "člověkem, který chce zanechat tento svět o trochu lepší, než jaký byl, když jsme na něj přišli. ",
       "Čechem.",
-      "jedním ze zakladatelů firmy Principle Industries. ",
+      "jedním ze zakladatelů firmy Principle Industries s.r.o. ",
       "držitelem skautského vyznamenání Lví skaut. ",
       "studentem gymnázia. ",
       "člověkem, který věří hodnotám Nejvyšší Pravdy a Lásky. ",

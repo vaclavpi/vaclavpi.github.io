@@ -1,5 +1,5 @@
 body {
-  background-color: #131314;
+  background-color: #FAFAFA;
   color: white;
   font-family: 'Mitr', sans-serif;
   text-align: center;
@@ -16,7 +16,7 @@ body {
 #welcome {
   font-size: 96px; /* Zde je zvětšená velikost textu */
   display: inline-block;
-  background: linear-gradient(90deg, #4D83F0, #D86572); /* Barva pro první písmeno na začátku a poslední na konci */
+  background: linear-gradient(90deg, #0055ff, #afcaff); /* Barva pro první písmeno na začátku a poslední na konci */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: colorChange 5s infinite alternate;

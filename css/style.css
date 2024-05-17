@@ -1,103 +1,110 @@
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
 body {
-  background-color: #FAFAFA;
-  color: white;
-  font-family: 'Mitr', sans-serif;
+  font-size: 0.94rem;
+  font-family: "Ubuntu Sans", sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
   text-align: center;
-  margin: 0;
+  line-height: 1.5;
+  background: #f8f8f8;
+}
+
+
+*,
+*::before,
+::after {
   padding: 0;
-}
-#content {
-  position: absolute;
-  top: 15%;
-  left: 10%;
+  margin: 0;
 }
 
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-#welcome {
-  font-size: 96px; /* Zde je zvětšená velikost textu */
-  display: inline-block;
+main {
+  padding: 12vh 0;
+}
+
+img[alt="Linktree photo"] {
+  --scale: 164px;
+  width: var(--scale);
+  height: var(--scale);
+  border-radius: 24px;
+}
+
+img[alt="Linktree photo"] + h3 {
+  margin: 16px 0 0px;
+}
+
+.linktree-nav {
+  margin: 40px auto 0;
+  width: 95%;
+  max-width: 700px;
+}
+
+.linktree-nav ul {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+}
+
+.linktree-nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linktree-box {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  padding: 12px 12px;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.linktree-box .icon-box {
+  --scale: 56px;
+  width: var(--scale);
+  height: var(--scale);
+  font-size: 1.25rem;
+  background: hsl(var(--color), 30%);
+  color: hsl(var(--color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+h3{
+  font-size: 85px; /* Zde je zvětšená velikost textu */
   background: linear-gradient(90deg, #0055ff, #afcaff); /* Barva pro první písmeno na začátku a poslední na konci */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: colorChange 5s infinite alternate;
 }
-@keyframes colorChange {
-  0% {
-      background-position: 0%;
+
+@media (min-width: 600px) {
+  .linktree-nav ul {
+    grid-template-columns: repeat(2, 1fr);
   }
-  100% {
-      background-position: 100%;
+  h3{
+    font-size: 48px; 
   }
-}
-#grey-text {
-  color: #888;
-  margin-top: 20px;
-  font-family: 'Almari', sans-serif;
-}
-
-
-#social-icons {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  -o-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-#social-icons a {
-  display: inline-block; /* Přidejte tento styl */
-}
-#social-icons i{
-  width: 150px;
-  margin: 0 1px;
-  color: #888;
-  font-size: 40px;
-  text-decoration: none;
-}
-#profile-pic {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%; /* Kulatý rámeček */
-}
-
-/* Pro responzivitu */
-@media only screen and (max-width: 768px) {
   #content {
-      position: static;
-      margin-top: 50px; /* Posune obsah dolů pro lepší viditelnost */
-      left: 0;
-      width: 100%;
-  }
-  #profile-pic {
-      top: 10px; /* Posune profilovou fotku blíže k hornímu okraji */
-      left: 50%; /* Umístí profilovou fotku na střed horizontálně */
-      transform: translateX(-50%);
-  }
-  #social-icons {
-      position: fixed;
-      margin-top: 80%; /* Posune sociální ikony výš */
-      white-space: nowrap; /* Zabraňuje zalamování ikon na nový řádek */
-  }
-  #social-icons a {
-      margin: 0 1px; /* Větší mezery mezi ikonami pro lepší ovladatelnost */
-      display: inline-block; /* Zajišťuje, že ikony se zobrazují vedle sebe */
-  }
-  #social-icons i{
-    width: 15%;
-    color: #888;
-    font-size: 35px;
-    text-decoration: none;
-  }
-  #welcome {
-      font-size: 48px; 
-      padding-top: 18%;/* Zmenšená velikost textu pro mobilní zařízení */
-  }
+    position: static;
+    margin-top: 50px; /* Posune obsah dolů pro lepší viditelnost */
+    left: 0;
+    width: 100%;}
   #grey-text {
-    margin-top: 10px;
-  }
+      margin-top: 10px;
+    }
 }

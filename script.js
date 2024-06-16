@@ -323,6 +323,7 @@ $(function () {
       "držitelem skautského vyznamenání Lví skaut, který se snaží žít podle skautských hodnot a přinášet radost ostatním. ",
       "studentem gymnázia, toužícím poznávat svět kolem sebe a nalézat svou cestu v častém chaosu. ",
       "několikanásobným vicemistrem republiky v Taekwon-Do ITF, nikdy nepřestávajícím se zdokonalovat a růst jako bojovník i člověk. ",
+      "pracujícím členm pro časopis Skauting a patronem ve Skautském odboru."
       "předsedou ve školním parlamentu, naslouchajícím hlasu svých spolužáků a usilujícím o pozitivní změny ve školním prostředí. ",
       "držitelem dekretů vzdělání v rámci Junáka, Taekwon-Da a MŠMT, který si uvědomuje sílu vzdělání a snahu o neustálý rozvoj a zdokonalování. ",
     ],

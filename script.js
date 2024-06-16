@@ -1,4 +1,4 @@
-no!(function ($) {
+!(function ($) {
   "use strict";
 
   var Typed = function (el, options) {

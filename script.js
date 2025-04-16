@@ -328,8 +328,8 @@ $(function () {
       "nositel vzdělávacích dekretů z Junáka, Taekwon-Do i MŠMT, který věří v sílu neustálého učení a růstu.",
       "Čech, hrdý na své kořeny, kulturu a dědictví, které formuje naši identitu.",
       "člověk, jež se každý den snaží zanechat svět o trochu lepší, než ho našel.",
+      "milovník přírody, který nachází klid a inspiraci v jejích krásách.",
     ],
-    
     typeSpeed: 40,
     startDelay: 800,
     backDelay: 1100,

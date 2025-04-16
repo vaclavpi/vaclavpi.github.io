@@ -5,13 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
 
 body {
-  font-size: 0.94rem;
+  font-size: 1rem;
   font-family: "Ubuntu Sans", sans-serif;
   font-style: normal;
   font-optical-sizing: auto;
   text-align: center;
   line-height: 1.5;
-  background: #f8f8f8;
+  background: #353535;
+  color: #f0f0f0;
 }
 
 
@@ -32,16 +33,27 @@ main {
   padding: 12vh 0;
 }
 
-img[alt="Linktree photo"] {
-  --scale: 164px;
-  width: var(--scale);
-  height: var(--scale);
-  border-radius: 24px;
+img[alt="Profile photo"] {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
 }
 
-img[alt="Linktree photo"] + h3 {
-  margin: 16px 0 0px;
+img[alt="Profile photo"]:hover {
+  transform: scale(1.1);
 }
+
+h3 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #0055ff, #afcaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorChange 5s infinite alternate;
+  margin: 20px 0;
+}
+
+
 
 .linktree-nav {
   margin: 40px auto 0;
@@ -58,6 +70,7 @@ img[alt="Linktree photo"] + h3 {
 .linktree-nav a {
   text-decoration: none;
   color: inherit;
+  
 }
 
 .linktree-box {
@@ -65,9 +78,15 @@ img[alt="Linktree photo"] + h3 {
   align-items: center;
   text-align: start;
   padding: 12px 12px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #2b2b2b;
   border-radius: 8px;
-  background: #fff;
+  background: #444444;
+}
+
+
+.linktree-box:hover {
+  background-color: #5a5a5a;
+  transform: scale(1.05);
 }
 
 .linktree-box .icon-box {
@@ -84,13 +103,7 @@ img[alt="Linktree photo"] + h3 {
   margin-right: 16px;
 }
 
-h3{
-  font-size: 85px; /* Zde je zvětšená velikost textu */
-  background: linear-gradient(90deg, #0055ff, #afcaff); /* Barva pro první písmeno na začátku a poslední na konci */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: colorChange 5s infinite alternate;
-}
+
 
 @media (min-width: 600px) {
   .linktree-nav ul {
@@ -107,4 +120,14 @@ h3{
   #grey-text {
       margin-top: 10px;
     }
+}
+
+@media (max-width: 600px) {
+  .linktree-nav ul {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
 }

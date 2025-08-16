@@ -1,0 +1,299 @@
+/* --- STYLY PRO LUXUSNÍ ANIMACI (PRELOADER) --- */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Použije primární tmavou barvu z tvého webu */
+    background-color: #1a1a1a; 
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    transition-delay: 1s;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-text {
+    /* Použije elegantní písmo z tvého webu */
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Responzivní velikost */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Tvorba samotného lesku pomocí pseudoelementu */
+.preloader-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Začíná mimo text */
+    width: 100%;
+    height: 100%;
+    /* Lesklý gradient */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: shimmer 2s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+
+/* --- Klíčové animace --- */
+
+/* Animace pro plynulé objevení textu */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animace pro pohyb lesku přes text */
+@keyframes shimmer {
+    to {
+        left: 150%; /* Končí mimo text na druhé straně */
+    }
+}
+
+/* DIZAJN PRE EVENTOVÚ AGENTÚRU: Elegantný, zlatý, prémiový */
+
+:root {
+    /* Elegantná zlato-čierna paleta */
+    --primary-color: #1a1a1a; /* Takmer čierna pre text a pozadie */
+    --bg-color: #FFFFFF; /* Čisté biele pozadie */
+    --bg-light: #F9F9F9; /* Jemne sivé pozadie sekcií */
+    --accent-color: #c59d5f; /* Sofistikovaná zlatá */
+    --accent-color-hover: #ab844a; /* Tmavšia zlatá pre hover */
+    --text-color: #333333;
+    --text-light: #666666;
+
+    /* Nová, elegantná typografia */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --border-radius: 8px;
+    --nav-height: 80px;
+}
+
+/* Reset a základné nastavenie */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+section { padding: 6rem 2rem; text-align: center; }
+.section-header { max-width: 700px; margin: 0 auto 4rem auto; }
+.section-header h2 { font-size: 3rem; margin-bottom: 1rem; }
+.section-header p { font-size: 1.1rem; color: var(--text-light); }
+
+/* Navigácia */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+    padding: 0 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
+.nav-brand a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-heading);
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--accent-color); }
+
+/* Hero sekcia */
+.hero {
+    min-height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    padding: var(--nav-height) 2rem;
+    background: url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.hero-content { z-index: 1; text-align: center; max-width: 800px; }
+.hero-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: white;
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    margin: 1.5rem 0 2.5rem;
+    font-family: var(--font-body);
+}
+.cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    font-family: var(--font-body);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Služby */
+.services { background-color: var(--bg-light); }
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.service-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.service-card h3 { padding: 1.5rem 1.5rem 0; margin: 0; font-size: 1.8rem; }
+.service-card p { padding: 0.5rem 1.5rem 1.5rem; margin: 0; color: var(--text-light); }
+
+/* Proces */
+.process { background-color: var(--bg-color); }
+.process-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.process-step { padding: 2rem; }
+.step-number {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+    font-family: var(--font-body);
+}
+.process-step h3 { font-size: 1.5rem; }
+.process-step p { color: var(--text-light); }
+
+/* O nás */
+.about { background-color: var(--bg-light); }
+.about-container {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    gap: 4rem; max-width: 1100px; margin: 0 auto; text-align: left;
+}
+.about-image { flex: 1 1 400px; }
+.about-image img { border-radius: var(--border-radius); width: 100%; }
+.about-text { flex: 1 1 500px; }
+.about-text h2 { font-size: 2.8rem; margin-top: 0; }
+
+/* Kontakt */
+.contact {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.contact .section-header h2, .contact .section-header p { color: #fff; }
+.contact-info { margin-top: 2rem; }
+.contact-info h3 {
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 0;
+}
+.contact-link {
+    display: block;
+    margin: 1rem auto;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: letter-spacing 0.3s ease;
+}
+.contact-link:hover {
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* Patička */
+.footer { background-color: #f2f2f2; color: var(--text-light); text-align: center; padding: 2.5rem; font-size: 0.9rem; }
+.footer p { margin: 0; }
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    section { padding: 4rem 1rem; }
+    .hero { min-height: 80vh; }
+}

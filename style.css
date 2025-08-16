@@ -1,141 +1,211 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+/* --- STYLY PRO ULTRA ANIMACI (PRELOADER) --- */
 
-body,
-header,
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-body {
-  font-size: 1rem;
-  font-family: "Ubuntu Sans", sans-serif;
-  font-style: normal;
-  font-optical-sizing: auto;
-  text-align: center;
-  line-height: 1.5;
-  background: #353535;
-  color: #f0f0f0;
-  justify-content: center;
-  gap: 20px;
-
-  figure {
-    overflow: hidden;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    margin-top: 50px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    
-}
-  }
-}
-
-
-*,
-*::before,
-::after {
-  padding: 0;
-  margin: 0;
-}
-
-main {
-  padding: 12vh 0;
-}
-
-
-
-h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.3rem;
-  margin: 10px 25px 0px 25px;
-  font-weight: 400;
-}
-
-
-
-.linktree-nav {
-  margin: 40px auto 0;
-  width: 95%;
-  max-width: 700px;
-}
-
-.linktree-nav ul {
-  display: grid;
-  gap: 1rem;
-  list-style: none;
-}
-
-.linktree-nav a {
-  text-decoration: none;
-  color: inherit;
-  
-}
-
-.linktree-box {
-  display: flex;
-  align-items: center;
-  text-align: start;
-  padding: 12px 12px;
-  border: 1px solid #2b2b2b;
-  border-radius: 8px;
-  background: #444444;
-}
-
-
-.linktree-box:hover {
-  background-color: #5a5a5a;
-  transform: scale(1.05);
-}
-
-.linktree-box .icon-box {
-  --scale: 56px;
-  width: var(--scale);
-  height: var(--scale);
-  font-size: 1.25rem;
-  background: hsl(var(--color), 30%);
-  color: hsl(var(--color));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  margin-right: 16px;
-}
-
-
-
-@media (min-width: 600px) {
-  .linktree-nav ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  h3{
-    font-size: 48px; 
-  }
-  #content {
-    position: static;
-    margin-top: 50px; /* Posune obsah dolů pro lepší viditelnost */
+#preloader {
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;}
-  #grey-text {
-      margin-top: 10px;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color); /* Použije stejné pozadí jako zbytek webu */
+    z-index: 9999; /* Musí být úplně nahoře */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* Pro plynulé zmizení */
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Důležité, aby se dalo klikat na web pod tím */
+}
+
+.preloader-logo {
+    display: flex;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 5rem; /* Velikost loga */
+    color: var(--text-primary);
+}
+
+.logo-letter {
+    display: inline-block;
+    opacity: 0; /* Začínají neviditelné */
+    transform: translateY(30px); /* Začínají posunuté dolů */
+    animation: revealLetter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Postupné zobrazení písmen s malým zpožděním */
+.logo-letter:nth-child(1) { animation-delay: 0.2s; }
+.logo-letter:nth-child(2) { animation-delay: 0.4s; }
+.logo-letter:nth-child(3) { animation-delay: 0.6s; }
+.logo-letter:nth-child(4) { animation-delay: 0.8s; }
+
+/* Klíčová animace pro odhalení písmen */
+@keyframes revealLetter {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 600px) {
-  .linktree-nav ul {
-    grid-template-columns: 1fr;
-  }
+/* --- MODERNÍ REDESIGN PRO ROZCESTNÍK --- */
 
-  h3 {
-    font-size: 2rem;
-  }
+:root {
+    --bg-color: #121212; /* Velmi tmavé pozadí */
+    --card-color: #1e1e1e; /* Barva karet a prvků */
+    --border-color: #2c2c2c; /* Barva okrajů */
+    --text-primary: #f0f0f0; /* Hlavní barva textu */
+    --text-secondary: #a0a0a0; /* Druhá barva textu (popisky) */
+    --accent-color: #007bff; /* Akcentní modrá barva */
+
+    --font-family: "Ubuntu Sans", sans-serif;
+}
+
+/* --- ZÁKLADNÍ NASTAVENÍ --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+/* --- HLAVIČKA A PROFIL --- */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+header figure {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header h2 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+
+/* --- HLAVNÍ OBSAH A SEKCE --- */
+main {
+    width: 100%;
+    max-width: 800px;
+}
+
+.linktree-nav {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: inline-block;
+}
+
+/* --- STYLY PRO ODKAZY (KARTY) --- */
+.linktree-nav ul {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+}
+
+.linktree-nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.linktree-box {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 1rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.linktree-box:hover {
+    transform: scale(1.03);
+    background-color: #252525;
+    border-color: var(--accent-color);
+}
+
+.linktree-box .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    /* Odstraněno --color, sjednoceno pro čistší vzhled */
+}
+
+.linktree-box h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.linktree-box span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* --- PATIČKA --- */
+footer {
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONZIVITA --- */
+@media (min-width: 640px) {
+    .linktree-nav ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

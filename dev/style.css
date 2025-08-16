@@ -135,7 +135,7 @@ section { padding: 6rem 2rem; text-align: center; }
 }
 .hero-content { z-index: 2; text-align: center; max-width: 800px; }
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.4rem, 6vw, 2.4rem);
     font-weight: 700;
     color: white;
     letter-spacing: 0.05em;
@@ -289,4 +289,92 @@ section { padding: 6rem 2rem; text-align: center; }
     .nav-links { display: none; }
     section { padding: 4rem 1rem; }
     .hero { min-height: 80vh; }
+}
+
+/* ===================================
+   STYLY PRO NOVOU SEKCI "MOJE PRÁCE"
+   =================================== */
+
+/* Kontejner pro portfolio karty (používá stejný layout jako ceník) */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Karta projektu (vzhledově vychází z .pricing-card) */
+.portfolio-card {
+    background-color: rgba(13, 17, 23, 0.7); /* Průsvitné pozadí */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Nutné pro oříznutí obrázku podle zaoblených rohů */
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.1);
+}
+
+/* Obrázek v kartě */
+.portfolio-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Zajistí, že obrázek vyplní prostor bez deformace */
+    border-bottom: 1px solid var(--border-color); /* Jemný oddělovač */
+}
+
+/* Obsah karty (text, tagy, tlačítko) */
+.portfolio-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Zajistí, že obsah vyplní dostupnou výšku karty */
+}
+
+.portfolio-card-content h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #f0f6fc; /* Jasná barva pro název projektu */
+}
+
+.portfolio-card-content p {
+    color: var(--text-color-darker);
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Odsune tagy a tlačítko na spodek karty */
+    margin-bottom: 1.5rem;
+}
+
+/* Tagy s technologiemi */
+.tags {
+    margin-bottom: 1.5rem;
+}
+
+.tags span {
+    display: inline-block;
+    background-color: rgba(88, 166, 255, 0.1); /* Jemné pozadí v barvě akcentu */
+    color: var(--accent-color); /* Barva akcentu pro text */
+    padding: 5px 12px;
+    border-radius: 50px; /* Zcela kulaté okraje */
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: var(--font-mono); /* Použije monospace písmo pro "tech" vzhled */
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Tlačítko v kartě - styl .cta-button.secondary se použije automaticky.
+   Toto pravidlo zajistí, že bude vždy dole. */
+.portfolio-card .cta-button {
+    margin-top: auto;
+    width: 100%;
 }

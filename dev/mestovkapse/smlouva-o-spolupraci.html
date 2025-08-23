@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Smlouva + Ceník – Město v kapse</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Smlouva mezi Provozovatelem a Partnerem/Administrátorem + Příloha D – Ceník.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
+    .legal-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; }
+    /* small helpers for active pricing */
+    .plan-btn.active { background-color: rgba(59,130,246,0.1); color: rgb(30,64,175); }
+    .pricing-card { display: none; }
+    .pricing-card.active { display: block; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white/90 sticky top-0 z-50 border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <svg class="w-10 h-10 text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="2" width="18" height="20" rx="2" stroke="currentColor" stroke-width="1.5"></rect>
+          <path d="M7 14L10 11L12 13L14 11L17 14V18C17 18.5523 16.5523 19 16 19H8C7.44772 19 7 18.5523 7 18V14Z" fill="currentColor"/>
+        </svg>
+        <div>
+          <div class="text-lg font-extrabold">Město v kapse</div>
+          <div class="text-xs text-gray-500">Smlouva o spolupráci, přílohy a ceník</div>
+        </div>
+      </div>
+      <nav class="text-sm">
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#obsah">Obsah</a>
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#prilohy">Přílohy</a>
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#priloha-d">Ceník</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12 lg:py-20">
+    <section class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-3">Smlouva o spolupráci a správě obsahu</h1>
+      <p class="text-gray-500">Mezi Provozovatelem a Partnerem / Administrátorem – vč. příloh a ceníku</p>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- TOC -->
+      <aside class="lg:col-span-1 order-2 lg:order-1">
+        <div class="sticky top-28 space-y-4">
+          <div class="bg-white p-4 rounded-lg shadow-sm border">
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">Obsah</h3>
+            <nav class="text-sm text-gray-600 space-y-2">
+              <div><a class="hover:underline" href="#strany">Smluvní strany</a></div>
+              <div><a class="hover:underline" href="#predmet">Čl.1 Předmět</a></div>
+              <div><a class="hover:underline" href="#prava-povinnosti-provozovatel">Čl.2 Provozovatel</a></div>
+              <div><a class="hover:underline" href="#prava-povinnosti-partner">Čl.3 Partner</a></div>
+              <div><a class="hover:underline" href="#odpovednost">Čl.4 Indemnita</a></div>
+              <div><a class="hover:underline" href="#bezpecnost">Čl.6 DPA</a></div>
+              <div><a class="hover:underline" href="#prilohy">Přílohy</a></div>
+              <div><a class="hover:underline" href="#priloha-d">Příloha D — Ceník</a></div>
+              <div><a class="hover:underline" href="#podpis">Podpisy</a></div>
+            </nav>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Contract content -->
+      <article id="obsah" class="lg:col-span-3 order-1 lg:order-2 space-y-10">
+        <!-- Parties -->
+        <section id="strany" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Smluvní strany</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Tato smlouva je uzavřena mezi:
+          </p>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 rounded-md bg-gray-50 border">
+              <p class="font-semibold">Provozovatel</p>
+              <p class="mt-2">Václav PISINGER<br>IČO: <span class="legal-mono">[DOPLNIT]</span><br>Sídlo: <span class="legal-mono">[DOPLNIT]</span><br>Email: <a href="mailto:vpi@outlook.cz" class="text-blue-600 underline">vpi@outlook.cz</a></p>
+            </div>
+            <div class="p-4 rounded-md bg-gray-50 border">
+              <p class="font-semibold">Partner / Administrátor</p>
+              <p class="mt-2">Název / Jméno: <span class="legal-mono">[DOPLNIT]</span><br>IČO / RČ: <span class="legal-mono">[DOPLNIT]</span><br>Sídlo / Adresa: <span class="legal-mono">[DOPLNIT]</span><br>Email: <span class="legal-mono">[DOPLNIT]</span></p>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 rounded-md bg-yellow-50 border-l-4 border-yellow-500">
+            <p class="font-semibold">Preambule</p>
+            <p class="mt-2 text-gray-700">Provozovatel provozuje aplikaci „Město v kapse“. Partner má zájem o přístup do administrátorské části k publikaci a správě Partnerského obsahu. Strany sjednávají tato ujednání.</p>
+          </div>
+        </section>
+
+        <!-- Article 1 -->
+        <section id="predmet" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 1 — Předmět smlouvy</h2>
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Poskytnutí přístupu do administrátorského rozhraní Aplikace za účelem publikace, editace a správy Partnerského obsahu.</li>
+            <li>Provozovatel poskytne Administrátorský účet v rozsahu oprávnění specifikovaných v <a href="#priloha-a" class="text-blue-600 underline">Příloze A</a>.</li>
+            <li>Tato smlouva upravuje práva a povinnosti stran včetně pravidel pro obsah, bezpečnost a ochranu osobních údajů.</li>
+          </ol>
+        </section>
+
+        <!-- Article 2 -->
+        <section id="prava-povinnosti-provozovatel" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 2 — Práva a povinnosti Provozovatele</h2>
+          <ul class="list-disc pl-6 space-y-3 text-lg">
+            <li>Poskytne technický provoz, údržbu a přiměřenou technickou podporu.</li>
+            <li>Provádí plánované a neplánované údržby; o plánovaných odstávkách informuje Partnera předem.</li>
+            <li>Neodpovídá za obsah vytvořený Partnerem; vyhrazuje si právo odstranit obsah porušující podmínky.</li>
+            <li>Zajistí základní technická a organizační opatření (viz <a href="#priloha-b" class="text-blue-600 underline">Příloha B</a>).</li>
+          </ul>
+        </section>
+
+        <!-- Article 3 -->
+        <section id="prava-povinnosti-partner" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 3 — Práva a povinnosti Partnera / Administrátora</h2>
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Partner je odpovědný za veškerý Partnerský obsah — jeho zákonnost, pravdivost a soulad s právem.</li>
+            <li>Partner prohlašuje, že drží potřebná práva k obsahu (autorská práva, souhlasy dotčených osob apod.).</li>
+            <li>Partner nesmí vkládat nevhodný obsah (viz seznam v článku 3.3 ve vzorové smlouvě).</li>
+            <li>Partner je povinen zabezpečit přihlašovací údaje a neprodleně oznámit kompromitaci.</li>
+            <li>Partner si je vědom, že za porušení práv třetích stran nese plnou odpovědnost a následky.</li>
+          </ol>
+        </section>
+
+        <!-- Article 4 -->
+        <section id="odpovednost" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 4 — Odpovědnost za obsah a indemnita</h2>
+          <div class="p-4 rounded-md bg-yellow-50 border-l-4 border-yellow-500 mb-4">
+            <p class="font-semibold">Klíčové ustanovení (indemnita)</p>
+            <p class="mt-2 text-lg text-gray-700">Partner se zavazuje plně odškodnit a uhradit Provozovateli všechny nároky, škody, pokuty a náklady (včetně nákladů právního zastoupení), které vzniknou v důsledku Partnerského obsahu, porušení smlouvy nebo práv třetích osob.</p>
+          </div>
+
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Za Partnerský obsah nese výhradní odpovědnost Partner.</li>
+            <li>Partner nese náklady týkající se sporných uplatnění, včetně právních výloh Provozovatele.</li>
+            <li>Indemnita zahrnuje i nároky související s ochranou osobních údajů, pokud vzniknou z nedodržení DPA ze strany Partnera.</li>
+          </ol>
+        </section>
+
+        <!-- Article 5 -->
+        <section id="omezeni" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 5 — Omezení odpovědnosti Provozovatele</h2>
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Provozovatel poskytuje Službu „tak, jak je“; nezaručuje nepřetržitou dostupnost ani bezchybnost.</li>
+            <li>S výjimkou úmyslného jednání nebo hrubé nedbalosti je odpovědnost Provozovatele omezená (viz limit uvedený v plném textu smlouvy).</li>
+            <li>Provozovatel není odpovědný za škody způsobené uživateli, jinými třetími stranami nebo za obsah vložený Partnerem.</li>
+          </ol>
+        </section>
+
+        <!-- Article 6 -->
+        <section id="bezpecnost" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 6 — Bezpečnost a ochrana osobních údajů (DPA)</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Strany potvrdily rozdílné role při zpracování osobních údajů. Konkrétní pravidla, doby uchovávání a technická opatření jsou v <a href="#priloha-c" class="text-blue-600 underline">Příloze C (DPA)</a>.
+          </p>
+
+          <div class="mt-4 p-4 rounded-md bg-gray-50 border-l-4 border-gray-300">
+            <p class="font-semibold">Povinnosti při incidentu</p>
+            <p class="mt-2 text-lg text-gray-700">V případě úniku dat informuje Provozovatel Partnera bez zbytečného odkladu, nejpozději do 72 hodin od zjištění. Partner je odpovědný za informování svých dotčených subjektů údajů, pokud tak stanoví zákon.</p>
+          </div>
+        </section>
+
+        <!-- Payments -->
+        <section id="platby" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 7 — Platby a odměna</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Přístup je poskytován bezplatně, pokud není mezi stranami písemně dohodnuto jinak (cena, ceník v Příloze B). Pokud se sjedná platba, budou platební podmínky zahrnuty ve smluvní příloze.
+          </p>
+        </section>
+
+        <!-- Audit -->
+        <section id="audit" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 8 — Audit a kontrola</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Provozovatel může provádět bezpečnostní kontroly. Partner poskytne přiměřenou součinnost. Audity prováděné Partnerem jsou možné pouze po předchozím písemném souhlasu Provozovatele.
+          </p>
+        </section>
+
+        <!-- Termination -->
+        <section id="ukonceni" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 9 — Doba trvání a ukončení</h2>
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Smlouva je uzavřena na dobu neurčitou od podpisu.</li>
+            <li>Výpověď s 30denní lhůtou, okamžité ukončení při závažném porušení.</li>
+            <li>Po ukončení budou přístupy odebrány a administrátorské údaje vymazány nebo anonymizovány dle Přílohy C, pokud zákon neukládá jinak.</li>
+          </ol>
+        </section>
+
+        <!-- Force Majeure -->
+        <section id="force" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 10 — Vyšší moc</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Strany nejsou odpovědné za neplnění závazků v důsledku událostí vyšší moci; postižená strana informuje druhou stranu bez zbytečného odkladu a učiní přiměřená opatření.
+          </p>
+        </section>
+
+        <!-- Intellectual Property -->
+        <section id="dusevni" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 11 — Duševní vlastnictví</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Všechna práva k Aplikaci (kód, design, značky) náleží Provozovateli. Partner uděluje nevýhradní licenci Provozovateli k užití Partnerského obsahu pro provoz a marketing Aplikace.
+          </p>
+        </section>
+
+        <!-- Confidentiality -->
+        <section id="duvery" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 12 — Důvěrnost</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Strany zachovávají mlčenlivost o neveřejných informacích po dobu trvání smlouvy a 3 roky po jejím ukončení (s výjimkami podle zákona).
+          </p>
+        </section>
+
+        <!-- Law & disputes -->
+        <section id="pravni" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 13 — Rozhodné právo a řešení sporů</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Tato smlouva se řídí právním řádem České republiky. Strany se budou snažit spor řešit smírně; pokud se spor nevyřeší do 30 dnů, je příslušný soud dle sídla Provozovatele.
+          </p>
+        </section>
+
+        <!-- Final -->
+        <section id="zaver" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Článek 14 — Závěrečná ustanovení</h2>
+          <ol class="list-decimal pl-6 space-y-3 text-lg">
+            <li>Změny pouze písemně a po podpisu obou stran.</li>
+            <li>Neplatnost části neznemožňuje platnost ostatních ustanovení.</li>
+            <li>Smlouva obsahuje úplné ujednání mezi stranami.</li>
+          </ol>
+        </section>
+
+        <!-- Attachments header -->
+        <section id="prilohy" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Přílohy (A / B / C)</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Níže jsou navržené přílohy, které doporučujeme upravit dle skutečné implementace a doplnit konkrétní technické a obchodní detaily.</p>
+        </section>
+
+        <!-- Příloha A -->
+        <section id="priloha-a" class="bg-white p-8 rounded-xl shadow border">
+          <h3 class="text-2xl font-bold mb-4">Příloha A — Rozsah oprávnění administrátorského účtu</h3>
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="p-3 border">Role</th>
+                <th class="p-3 border">Popis oprávnění</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="p-3 border align-top font-semibold">Superadmin</td>
+                <td class="p-3 border">Plný přístup: publikace, editace, mazání obsahu, správa uživatelů, revize aktivit, nastavení partnera.</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3 border align-top font-semibold">Administrátor</td>
+                <td class="p-3 border">Vkládání a editace položek, návrhy publikace, omezené nastavení.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Příloha B -->
+        <section id="priloha-b" class="bg-white p-8 rounded-xl shadow border">
+          <h3 class="text-2xl font-bold mb-4">Příloha B — Technická a organizační opatření (security)</h3>
+
+          <ul class="list-disc pl-6 space-y-3 text-lg">
+            <li>Ukládání hesel pouze v hašované (salted+iterated) podobě; doporučené algoritmy: bcrypt/argon2.</li>
+            <li>Pravidelné zálohy a minimálně jeden offsite backup.</li>
+            <li>Logování přístupů a audit trail pro administrátorské akce s retencí dle zákona.</li>
+            <li>Pravidelné aktualizace systému a sledování bezpečnostních událostí.</li>
+            <li>Postup pro hlášení bezpečnostního incidentu a jeho řešení.</li>
+          </ul>
+        </section>
+
+        <!-- Příloha C (DPA) -->
+        <section id="priloha-c" class="bg-white p-8 rounded-xl shadow border">
+          <h3 class="text-2xl font-bold mb-4">Příloha C — Data Processing Agreement (DPA)</h3>
+
+          <p class="text-lg text-gray-700 leading-relaxed">
+            <strong>Role stran:</strong> Partner — správce (controller) za obsah, Provozovatel — zpracovatel (processor) / správce v rozsahu administrátorských účtů (dle skutečné role doplnit). Níže jsou doporučená ustanovení:
+          </p>
+
+          <ol class="list-decimal pl-6 space-y-3 text-lg mt-4">
+            <li><strong>Rozsah zpracování:</strong> osobní údaje administrátorů (uživatelské jméno, autentizační údaje v zabezpečené formě, role), případně osobní údaje obsažené v Partnerském obsahu (určuje Partner jako správce).</li>
+
+            <li><strong>Účel:</strong> provoz administrace, autentizace, bezpečnostní účely a archivace logů pro auditní účely.</li>
+
+            <li><strong>Doba uchovávání:</strong> údaje administrátorů uchovávány po dobu platnosti přístupů a po ukončení dle interní retenční politiky (doporučeno: deaktivace + anonymizace do 90 dnů, pokud není potřeba uchovat pro právní důvody).</li>
+
+            <li><strong>Bezpečnost:</strong> viz Příloha B. Provozovatel zajistí přiměřená opatření k ochraně údajů.</li>
+
+            <li><strong>Předávání třetím stranám:</strong> pokud dojde k předání (hosting, zálohy), Provozovatel zajistí smluvní zajištění sub-procesorů a informuje Partnera předem.</li>
+
+            <li><strong>Incidenty:</strong> Provozovatel informuje Partnera o bezpečnostním incidentu do 72 hodin od zjištění; spolupráce při vyšetřování a notifkaci dozorových orgánů dle zákona.</li>
+
+            <li><strong>Práva subjektů údajů:</strong> Provozovatel pomáhá Partnerovi při uplatňování práv subjektů údajů (přístup, výmaz, omezení), pokud je to v jeho pravomoci a možnostech.</li>
+
+            <li><strong>Audit:</strong> Partner může požadovat dokumentaci o bezpečnostních opatřeních a přiměřený audit, pokud to bude nezbytné a po předchozí dohodě.</li>
+          </ol>
+
+        </section>
+ <!-- Příloha D (Ceník) -->
+        <section id="priloha-d" class="bg-white p-8 rounded-xl shadow border">
+          <h3 class="text-2xl font-bold mb-4">Příloha D — Ceník</h3>
+          <p class="text-lg text-gray-700 mb-6">Jednoduchý a transparentní ceník — vyberte plán, který nejlépe vyhovuje potřebám města.</p>
+
+          <div class="max-w-4xl mx-auto">
+            <div class="bg-white p-2 rounded-full shadow-md inline-flex mb-8 plan-toggle" role="tablist" aria-label="Plány">
+              <button class="plan-btn active px-6 py-2 rounded-full font-semibold" data-plan="zaklad" role="tab" aria-selected="true">Základ</button>
+              <button class="plan-btn px-6 py-2 rounded-full font-semibold" data-plan="profi" role="tab" aria-selected="false">Profi</button>
+              <button class="plan-btn px-6 py-2 rounded-full font-semibold" data-plan="premium" role="tab" aria-selected="false">Premium</button>
+            </div>
+
+            <!-- Základ -->
+            <div class="pricing-card active" data-plan="zaklad">
+              <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <h4 class="text-2xl font-bold">Základ</h4>
+                <p class="text-gray-500 my-4">Ideální pro menší města a obce.</p>
+                <div class="text-4xl font-extrabold my-6">700 Kč<span class="text-lg font-medium text-gray-500">/měsíc</span></div>
+                <ul class="text-left space-y-3 mb-8 text-lg">
+                  <li>✔ Správa profilu města</li>
+                  <li>✔ Až 15 možných míst</li>
+                  <li>✔ 5 událostí měsíčně</li>
+                  <li class="text-gray-400">✖ Cílené notifikace</li>
+                  <li class="text-gray-400">✖ Osobní podpora</li>
+                </ul>
+                <a href="#kontakt" class="inline-block btn-secondary font-semibold px-8 py-3 rounded-full w-full text-center bg-gray-100 hover:bg-gray-200">Zvolit plán</a>
+              </div>
+            </div>
+
+            <!-- Profi -->
+            <div class="pricing-card" data-plan="profi">
+              <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-600 relative">
+                <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full absolute -top-4">Doporučeno</span>
+                <h4 class="text-2xl font-bold">Profi</h4>
+                <p class="text-gray-500 my-4">Pro aktivní města s bohatým programem.</p>
+                <div class="text-4xl font-extrabold my-6">2 300 Kč<span class="text-lg font-medium text-gray-500">/měsíc</span></div>
+                <ul class="text-left space-y-3 mb-8 text-lg">
+                  <li>✔ Správa profilu města</li>
+                  <li>✔ Až 60 možných míst</li>
+                  <li>✔ Neomezeně událostí</li>
+                  <li class="text-gray-400">✖ Cílené notifikace</li>
+                  <li class="text-gray-400">✖ Osobní podpora</li>
+                </ul>
+                <a href="#kontakt" class="inline-block btn-primary font-semibold px-8 py-3 rounded-full w-full text-center bg-blue-600 text-white hover:bg-blue-700">Zvolit plán</a>
+              </div>
+            </div>
+
+            <!-- Premium -->
+            <div class="pricing-card" data-plan="premium">
+              <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <h4 class="text-2xl font-bold">Premium</h4>
+                <p class="text-gray-500 my-4">Pro kraje a velké turistické destinace.</p>
+                <div class="text-4xl font-extrabold my-6">Kontaktujte nás</div>
+                <ul class="text-left space-y-3 mb-8 text-lg">
+                  <li>✔ Správa profilu města</li>
+                  <li>✔ Neomezeně míst</li>
+                  <li>✔ Neomezeně událostí</li>
+                  <li>✔ Cílené notifikace</li>
+                  <li>✔ Osobní podpora</li>
+                </ul>
+                <a href="#kontakt" class="inline-block btn-secondary font-semibold px-8 py-3 rounded-full w-full text-center bg-gray-100 hover:bg-gray-200">Individuální cena</a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- Signatures -->
+        <section id="podpis" class="bg-white p-8 rounded-xl shadow border">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Podpisové údaje</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-lg border">
+              <p class="font-semibold">Za Provozovatele</p>
+              <p class="mt-4">Jméno: <span class="font-medium">Václav PISINGER</span></p>
+              <p class="mt-2">Datum: ______________________</p>
+              <p class="mt-6">Podpis: ______________________</p>
+            </div>
+
+            <div class="p-6 rounded-lg border">
+              <p class="font-semibold">Za Partnera / Administrátora</p>
+              <p class="mt-4">Jméno / Název: ______________________</p>
+              <p class="mt-2">Datum: ______________________</p>
+              <p class="mt-6">Podpis: ______________________</p>
+            </div>
+          </div>
+
+          </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 mt-12">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between">
+      <div>
+        <div class="text-white font-semibold">Město v kapse</div>
+        <div class="text-xs mt-1">© 2025 Václav PISINGER</div>
+      </div>
+      <div class="mt-4 md:mt-0 text-sm">
+        <a class="hover:underline" href="mailto:vpi@outlook.cz">vpi@outlook.cz</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

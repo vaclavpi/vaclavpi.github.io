@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvořiště s.r.o. | Inovace. Kódy. Zážitek.</title>
+    <meta name="description" content="Tvořiště s.r.o. je vaším partnerem pro inovativní vývoj software, špičkovou foto & video produkci a bezchybnou organizaci eventů. Spojujeme kreativitu s precizností.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Loading Animation --- */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #0D1117;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            opacity: 1; visibility: visible;
+        }
+        .loader-hidden {
+            opacity: 0 !important; visibility: hidden !important;
+        }
+        .loader-text-wrapper {
+            display: flex;
+        }
+        .loader-char {
+            transform: translateY(1.2em); /* Start below the line */
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            line-height: 1;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(1.2em); opacity: 0; filter: blur(4px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0px); }
+        }
+
+        /* --- Marquee Hero Background --- */
+        .hero-keywords {
+            position: absolute; inset: 0; z-index: 0;
+            display: flex; flex-direction: column; justify-content: space-evenly;
+            align-items: center; overflow: hidden;
+            pointer-events: none; user-select: none;
+        }
+        .hero-keywords .keyword-line {
+            display: flex; width: max-content;
+            opacity: 0.08;
+            font-size: clamp(4rem, 12vw, 12rem);
+            font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap;
+            animation: keyword-scroll-alt 80s linear infinite; /* Slower animation */
+        }
+        .hero-keywords .keyword-line:nth-child(even) {
+            animation-direction: reverse;
+        }
+        @keyframes keyword-scroll-alt {
+            from { transform: translateX(0%); } to { transform: translateX(-50%); }
+        }
+
+        /* --- General styles & Details --- */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+        .reveal.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        /* Noise texture for dark mode */
+        body.dark::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4=');
+            opacity: 0.015;
+            pointer-events: none;
+            z-index: -1;
+        }
+        /* Custom scrollbar */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        body::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
+        body.dark::-webkit-scrollbar-track { background: #1f2937; }
+        body.dark::-webkit-scrollbar-thumb { background: #4a5568; }
+        body::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca'
+                        },
+                        accent: {
+                            'blue': '#0ea5e9', 'purple': '#8b5cf6', 'pink': '#ec4899', 'green': '#22c55e'
+                        },
+                        'marquee-light': '#E5E7EB',
+                        'marquee-dark': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
+
+    <div id="loader">
+        <div class="loader-text-wrapper"></div>
+    </div>
+
+    <nav class="bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-900 dark:text-white tracking-wider font-mono transition-colors duration-300">Tvořiště s.r.o.</a>
+            <div class="flex items-center space-x-4 md:space-x-8">
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#sluzby" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Služby</a>
+                    <a href="#portfolio" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Portfolio</a>
+                    <a href="#proces" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Proces</a>
+                    <a href="#tym" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Tým</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    <i class="ri-moon-line text-lg hidden dark:block"></i>
+                    <i class="ri-sun-line text-lg block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden py-24 md:py-32 lg:py-40 text-center flex flex-col items-center justify-center min-h-screen-75">
+        <div class="hero-keywords">
+            <div class="keyword-line text-marquee-light dark:text-marquee-dark">
+                <span class="px-8">Inovace</span><span class="px-8">Digitál</span><span class="px-8">Kód</span><span class="px-8">Budoucnost</span><span class="px-8">Kreativita</span><span class="px-8">Řešení</span>
+                <span class="px-8" aria-hidden="true">Inovace</span><span class="px-8" aria-hidden="true">Digitál</span><span class="px-8" aria-hidden="true">Kód</span><span class="px-8" aria-hidden="true">Budoucnost</span><span class="px-8" aria-hidden="true">Kreativita</span><span class="px-8" aria-hidden="true">Řešení</span>
+            </div>
+            <div class="keyword-line text-marquee-light dark:text-marquee-dark" style="animation-delay: -40s;">
+                <span class="px-8">Software</span><span class="px-8">Design</span><span class="px-8">Vize</span><span class="px-8">Data</span><span class="px-8">Produkce</span><span class="px-8">Akce</span>
+                 <span class="px-8" aria-hidden="true">Software</span><span class="px-8" aria-hidden="true">Design</span><span class="px-8" aria-hidden="true">Vize</span><span class="px-8" aria-hidden="true">Data</span><span class="px-8" aria-hidden="true">Produkce</span><span class="px-8" aria-hidden="true">Akce</span>
+            </div>
+            <div class="keyword-line text-marquee-light dark:text-marquee-dark" style="animation-delay: -80s;">
+                <span class="px-8">Optimalizace</span><span class="px-8">Strategie</span><span class="px-8">Digitalizace</span><span class="px-8">Vývoj</span><span class="px-8">Foto</span><span class="px-8">Video</span>
+                <span class="px-8" aria-hidden="true">Optimalizace</span><span class="px-8" aria-hidden="true">Strategie</span><span class="px-8" aria-hidden="true">Digitalizace</span><span class="px-8" aria-hidden="true">Vývoj</span><span class="px-8" aria-hidden="true">Foto</span><span class="px-8" aria-hidden="true">Video</span>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight text-gray-900 dark:text-white reveal">
+                Tvoříme řešení <br>pro <span class="text-primary-600 dark:text-accent-purple">novou éru</span>.
+            </h1>
+            <p class="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400 reveal" style="transition-delay: 200ms;">
+                V Tvořiště s.r.o. spojujeme technické znalosti s neomezenou kreativitou. Jsme vaši partneři na cestě k nejen digitální transformaci.
+            </p>
+            <a href="#kontakt" class="mt-12 inline-block bg-primary-600 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 reveal" style="transition-delay: 400ms;">
+                Prozkoumat možnosti
+            </a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="sluzby" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Naše specializace</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">Posouváme hranice v softwarovém vývoji, vizuální produkci a event managementu. Vytváříme řešení, která rezonují.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-white dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-none hover:shadow-xl dark:hover:border-primary-500 transition-all duration-300 reveal">
+                        <i class="ri-code-s-slash-line text-5xl text-accent-purple mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-mono">Software Development</h3>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Transformujeme komplexní nápady v elegantní a robustní digitální produkty. Od custom CRM systémů, e-commerce platforem, po mobilní aplikace – stavíme na míru vaší vizi.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-none hover:shadow-xl dark:hover:border-accent-pink transition-all duration-300 reveal" style="transition-delay: 200ms;">
+                        <i class="ri-camera-line text-5xl text-accent-pink mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-mono">Photo & Video Production</h3>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Vizuální storytelling, který zaujme. Od firemní fotografie, produktových záběrů, až po reklamní spoty a event videa. Zachycujeme okamžiky, které mají smysl.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-none hover:shadow-xl dark:hover:border-accent-blue transition-all duration-300 reveal" style="transition-delay: 400ms;">
+                        <i class="ri-calendar-event-line text-5xl text-accent-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-mono">Event Management</h3>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Přeměňujeme události na nezapomenutelné zážitky. Kompletní plánování, koordinace a realizace od firemních akcí, konferencí, až po soukromé oslavy. S námi je každý event úspěch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-20 md:py-28 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Naše práce: Příběhy, které ožívají</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">Vizuální důkaz naší vášně a preciznosti. Prozkoumejte projekty, které jsme přivedli k životu.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-950 rounded-xl shadow-lg overflow-hidden group transform hover:scale-[1.02] transition-transform duration-300 reveal">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" alt="Projekt: CRM systém" class="w-full h-72 object-cover">
+                        <div class="p-8">
+                            <span class="text-sm font-bold text-accent-purple font-mono">DEV</span>
+                            <h3 class="text-2xl font-bold mt-2 text-gray-900 dark:text-white">Enterprise CRM Platform</h3>
+                            <p class="mt-4 text-gray-600 dark:text-gray-400">Navrhli jsme a implementovali kompletní CRM systém, který optimalizoval prodejní procesy a zlepšil správu klientů pro našeho B2B partnera.</p>
+                            <a href="#" class="mt-4 inline-block text-primary-600 dark:text-primary-400 font-semibold hover:underline">Zobrazit studii &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-950 rounded-xl shadow-lg overflow-hidden group transform hover:scale-[1.02] transition-transform duration-300 reveal" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=800" alt="Projekt: Brandové video" class="w-full h-72 object-cover">
+                        <div class="p-8">
+                            <span class="text-sm font-bold text-accent-pink font-mono">VIDEO</span>
+                            <h3 class="text-2xl font-bold mt-2 text-gray-900 dark:text-white">Immersive Brand Film</h3>
+                            <p class="mt-4 text-gray-600 dark:text-gray-400">Vytvořili jsme vizuálně strhující brandový film, který zachytil esenci inovativního startupu a pomohl mu oslovit nové investory.</p>
+                            <a href="#" class="mt-4 inline-block text-primary-600 dark:text-primary-400 font-semibold hover:underline">Prohlédnout práci &rarr;</a>
+                        </div>
+                    </div>
+                     <div class="bg-white dark:bg-gray-950 rounded-xl shadow-lg overflow-hidden group transform hover:scale-[1.02] transition-transform duration-300 reveal" style="transition-delay: 400ms;">
+                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800" alt="Projekt: Gala večer" class="w-full h-72 object-cover">
+                        <div class="p-8">
+                            <span class="text-sm font-bold text-accent-blue font-mono">EVENTS</span>
+                            <h3 class="text-2xl font-bold mt-2 text-gray-900 dark:text-white">Global Tech Summit</h3>
+                            <p class="mt-4 text-gray-600 dark:text-gray-400">Zajištění kompletní organizace a produkce prestižního technologického summitu pro tisíce účastníků z celého světa.</p>
+                            <a href="#" class="mt-4 inline-block text-primary-600 dark:text-primary-400 font-semibold hover:underline">Podívat se na detaily &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proces" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Náš proces: Jasná cesta k úspěchu</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">Věříme v transparentní, agilní a na klienta orientovaný přístup. Každý krok je promyšlený.</p>
+                </div>
+                <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-8 text-center">
+                    <div class="hidden lg:block absolute top-[calc(50%+2rem)] left-0 right-0 h-0.5 bg-gray-200 dark:bg-gray-700 -translate-y-1/2 mx-auto" style="width: calc(100% - 10rem);"></div>
+
+                    <div class="relative z-10 p-4 reveal">
+                        <div class="w-20 h-20 mx-auto bg-primary-100 dark:bg-primary-700 rounded-full flex items-center justify-center mb-4 border-2 border-primary-300 dark:border-primary-600">
+                            <i class="ri-lightbulb-line text-4xl text-primary-700 dark:text-primary-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4 text-gray-900 dark:text-white">01. Objev & Strategie</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Hluboce se ponoříme do vašich cílů, analyzujeme trh a vytváříme mapu k digitální transformaci.</p>
+                    </div>
+                    <div class="relative z-10 p-4 reveal" style="transition-delay: 200ms;">
+                        <div class="w-20 h-20 mx-auto bg-primary-100 dark:bg-primary-700 rounded-full flex items-center justify-center mb-4 border-2 border-primary-300 dark:border-primary-600">
+                            <i class="ri-palette-line text-4xl text-primary-700 dark:text-primary-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4 text-gray-900 dark:text-white">02. Design & Prototyp</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Přetváříme strategie do intuitivních UI/UX designů a interaktivních prototypů, které si můžete osahat.</p>
+                    </div>
+                    <div class="relative z-10 p-4 reveal" style="transition-delay: 400ms;">
+                        <div class="w-20 h-20 mx-auto bg-primary-100 dark:bg-primary-700 rounded-full flex items-center justify-center mb-4 border-2 border-primary-300 dark:border-primary-600">
+                            <i class="ri-brackets-line text-4xl text-primary-700 dark:text-primary-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4 text-gray-900 dark:text-white">03. Vývoj & Implementace</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">S nejlepšími technologiemi a agilním přístupem přivádíme design k životu s důrazem na výkon a bezpečnost.</p>
+                    </div>
+                    <div class="relative z-10 p-4 reveal" style="transition-delay: 600ms;">
+                        <div class="w-20 h-20 mx-auto bg-primary-100 dark:bg-primary-700 rounded-full flex items-center justify-center mb-4 border-2 border-primary-300 dark:border-primary-600">
+                            <i class="ri-rocket-line text-4xl text-primary-700 dark:text-primary-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4 text-gray-900 dark:text-white">04. Růst & Podpora</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Po spuštění zajišťujeme kontinuální optimalizaci, podporu a rozvoj, aby váš projekt neustále rostl.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tym" class="py-20 md:py-28 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Setkejte se s našimi vizionáři</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">Za každým úspěšným projektem stojí tým zapálených expertů. Poznejte lidi, kteří tvoří Tvořiště.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-10">
+                    <div class="text-center w-72 reveal">
+                        <img src="../vapi.jpg" alt="Václav Pisinger" class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-md dark:shadow-none">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-6">Václav Pisinger</h3>
+                        <p class="text-primary-600 dark:text-primary-400 font-mono mt-1">Zakladatel & CEO</p>
+                        <p class="mt-3 text-gray-600 dark:text-gray-400">Vizí poháněný leader, který sjednocuje kreativní talenty a strategicky vede k inovacím.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 md:py-28">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Časté otázky</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">Nenašli jste odpověď? Kontaktujte nás!</p>
+                </div>
+                <div class="space-y-4 reveal">
+                    <details class="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-950 shadow-md dark:shadow-none">
+                        <summary class="font-semibold text-lg cursor-pointer text-gray-900 dark:text-white flex items-center justify-between">
+                            Jaký je první krok, pokud mám zájem o spolupráci?
+                            <i class="ri-add-line text-xl ml-2"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Začněte s nezávaznou úvodní konzultací. Probereme vaši vizi, cíle a nejlepší cestu k jejich realizaci. Kontaktujte nás a domluvíme termín, který vám vyhovuje.</p>
+                    </details>
+                    <details class="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-950 shadow-md dark:shadow-none">
+                        <summary class="font-semibold text-lg cursor-pointer text-gray-900 dark:text-white flex items-center justify-between">
+                            Jak dlouho trvá vývoj webové nebo mobilní aplikace?
+                            <i class="ri-add-line text-xl ml-2"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Doba vývoje se liší podle složitosti projektu. Od několika týdnů pro jednodušší MVP (Minimum Viable Product) až po 3-6 měsíců i déle pro komplexní systémy. Po úvodní analýze vám poskytneme detailní časový odhad.</p>
+                    </details>
+                    <details class="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-950 shadow-md dark:shadow-none">
+                        <summary class="font-semibold text-lg cursor-pointer text-gray-900 dark:text-white flex items-center justify-between">
+                            Poskytujete i následnou podporu a údržbu projektu?
+                            <i class="ri-add-line text-xl ml-2"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400">Ano, nabízíme komplexní balíčky poprojektové podpory a údržby (SLA), které zahrnují technickou podporu, pravidelné aktualizace, monitoring a další rozvojové práce, aby vaše řešení bylo vždy aktuální a bezpečné.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-20 md:py-28 bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white reveal">Pojďme společně vytvořit něco <span class="text-accent-blue dark:text-accent-blue">mimořádného</span>.</h2>
+                 <p class="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-400 reveal">Náš tým je připraven proměnit vaše nápady v digitální realitu. Spojte se s námi ještě dnes.</p>
+                 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+                    <div class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-lg dark:shadow-none border border-gray-200 dark:border-gray-800 flex flex-col items-center reveal">
+                        <i class="ri-mail-line text-4xl text-primary-600 dark:text-primary-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Email</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Odpovídáme rychle, obvykle do 24 hodin.</p>
+                        <a href="mailto:vpi@outlook.cz" class="mt-4 text-primary-600 dark:text-primary-400 font-semibold hover:underline font-mono">vpi@outlook.cz</a>
+                    </div>
+                    <div class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-lg dark:shadow-none border border-gray-200 dark:border-gray-800 flex flex-col items-center reveal" style="transition-delay: 200ms;">
+                        <i class="ri-phone-line text-4xl text-primary-600 dark:text-primary-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Telefon</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Pro rychlou konzultaci, jsme k dispozici.</p>
+                        <a href="tel:+420777123456" class="mt-4 text-primary-600 dark:text-primary-400 font-semibold hover:underline font-mono">+420 603 981 192</a>
+                    </div>
+                    <div class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-lg dark:shadow-none border border-gray-200 dark:border-gray-800 flex flex-col items-center reveal" style="transition-delay: 400ms;">
+                        <i class="ri-map-pin-line text-4xl text-primary-600 dark:text-primary-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Adresa</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Korespondenční adresa.</p>
+                        <p class="mt-4 text-gray-600 dark:text-gray-400 font-mono">x,<br>x</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-10">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8">
+                <p class="font-bold text-lg text-gray-800 dark:text-gray-200">Tvořiště s.r.o.</p>
+                <p class="mt-2">XXXXXXX</p>
+                <p>IČO: XXXXXXXX</p>
+                <p class="mt-8">&copy; 2025 Tvořiště s.r.o. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Use an IIFE (Immediately Invoked Function Expression) to ensure DOM is ready
+        (function() {
+            // Loader Logic
+            const loader = document.getElementById('loader');
+            const loaderTextWrapper = document.querySelector('.loader-text-wrapper');
+            const companyName = "Tvořiště    s.r.o.";
+            let charAnimationDuration = 0.7; // seconds
+            let charStagger = 0.08; // seconds
+
+            // Populate loader text with animated characters
+            if (loaderTextWrapper) {
+                companyName.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.classList.add('loader-char');
+                    span.textContent = char;
+                    span.style.animationDelay = `${index * charStagger}s`;
+                    loaderTextWrapper.appendChild(span);
+                });
+            }
+
+            // Calculate total animation duration for loader to hide
+            const totalTextAnimationTime = (companyName.length * charStagger) + charAnimationDuration;
+            const loaderHideDelay = (totalTextAnimationTime * 1000) + 500; // Text animates, then wait 0.5s before fading out
+
+            // Hide scrollbar during loading
+            document.body.style.overflow = 'hidden';
+
+            // Wait for all images and resources to load, then hide loader
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (loader) {
+                        loader.classList.add('loader-hidden');
+                    }
+                    document.body.style.overflow = ''; // Restore scroll
+                }, loaderHideDelay);
+            });
+
+
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const docElement = document.documentElement;
+
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            if (savedTheme === 'dark') {
+                docElement.classList.add('dark');
+            } else {
+                docElement.classList.remove('dark');
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    docElement.classList.toggle('dark');
+                    const currentTheme = docElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', currentTheme);
+                });
+            }
+
+            // Scroll Reveal Animation Logic
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }); 
+            if (revealElements.length > 0) {
+                revealElements.forEach(element => {
+                    observer.observe(element);
+                });
+            }
+        })(); // End of IIFE
+    </script>
+</body>
+</html>
